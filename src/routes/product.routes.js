@@ -11,13 +11,13 @@ export const productRoutes = (fastify, opts, done) => {
   fastify.get("/:id", productCtrl.listById);
   fastify.post(
     "/",
-    { preHandler: [middleware, upload.single("img")] },
+    { preHandler: [preValidation, upload.single("img")] },
     productCtrl.create
   );
   fastify.delete("/:id", { preHandler: [middleware] }, productCtrl.delete);
   fastify.put(
     "/:id",
-    { preHandler: [middleware, upload.single("img")] },
+    { preValidation: [middleware, upload.single("img")] },
     productCtrl.update
   );
   done();

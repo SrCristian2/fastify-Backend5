@@ -12,7 +12,7 @@ export const categoryRoutes = (fastify, opts, done) => {
   fastify.get("/:id", categoryCtrl.listById);
   fastify.post(
     "/",
-    { schema: categorySchema, preHandler: [middleware, upload.single("img")] },
+    { schema: categorySchema, preValidation: [middleware, upload.single("img")] },
     categoryCtrl.create
   );
   fastify.delete("/:id", { preHandler: [middleware] }, categoryCtrl.delete);
