@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 mongoose.set("strictQuery", false);
 
 const uri =
-  "mongodb+srv://prueba:prueba@cluster0.hs6wuns.mongodb.net/fastifyBk4";
+  "";
 
 export const connectDb = async () => {
   try {
